@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../services/usuario.service';
 import { Usuario } from '../models/Usuario.model';
 
@@ -7,7 +7,7 @@ import { Usuario } from '../models/Usuario.model';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit{
 
   //Variavel que irá guardar o retorno da API
   listaUsuarios: Usuario[] = [];
@@ -44,5 +44,9 @@ export class Tab1Page {
       this.usuario = retorno as Usuario;
       this.listaUsuarios = []; // Limpa a lista
     })
+  }
+
+  ngOnInit(){
+    this.buscarUsuarios();
   }
 }
