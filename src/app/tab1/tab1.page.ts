@@ -43,7 +43,7 @@ export class Tab1Page implements OnInit{
       console.log(retorno);
       this.usuario = retorno as Usuario;
       this.listaUsuarios = []; // Limpa a lista
-    })
+    });
   }
 
   ngOnInit(){

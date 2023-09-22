@@ -1,4 +1,3 @@
-import { Produto } from './../models/Produto.model';
 import { Component, OnInit } from '@angular/core';
 import { Produto } from '../models/Produto.model';
 import { ProdutoService } from '../services/produto.service';
@@ -16,7 +15,7 @@ export class Tab2Page implements OnInit{
 
   constructor(private produtoService: ProdutoService) { }
 
-  buscarProduto(){
+  buscarProdutos(){
     this.produtoService.getAll().subscribe(retorno =>{
       // "as Usuario[]" tenta converter o retorno
       this.listaProdutos = retorno as Produto[];
@@ -33,8 +32,7 @@ export class Tab2Page implements OnInit{
     });
   }
 
-
   ngOnInit(){
-
+    this.buscarProdutos();
   }
 }

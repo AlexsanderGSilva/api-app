@@ -14,7 +14,6 @@ export class ProdutoService {
   constructor(private http: HttpClient) { }
 
   public getAll(): Observable<Produto[]>{
-    //retorna o resultado da coneção com a URL da API
     return this.http.get<Produto[]>(this.url).pipe(
       map(retorno => retorno),
       catchError(erro => this.exibeErro(erro))
