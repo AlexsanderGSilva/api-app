@@ -47,4 +47,19 @@ export class UsuarioService {
       catchError(erro => this.exibeErro(erro))
     );
   }
+
+  alterar(usuario: Usuario): Observable<Usuario>{
+    return this.http.put<Usuario>(`${this.url}/${usuario.id}`, usuario).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibeErro(erro))
+    );
+  }
+
+  deletar(id: number): Observable<Usuario>{
+    return this.http.delete<Usuario>(`${this.url}/${id}`).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibeErro(erro))
+    );
+  }
+
 }

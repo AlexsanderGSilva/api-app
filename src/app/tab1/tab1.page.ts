@@ -46,7 +46,19 @@ export class Tab1Page implements OnInit{
     });
   }
 
+  deletar(id: number | undefined){
+    this.userService.deletar(id as number).subscribe(retorno =>{
+      console.log(retorno);
+      this.listaUsuarios = []; // Limpa a lista
+      this.buscarUsuarios();
+    });
+  }
+
   ngOnInit(){
+    
+  }
+
+  ionViewWillEnter(){
     this.buscarUsuarios();
   }
 }
